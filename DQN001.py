@@ -117,7 +117,7 @@ class Ball(object):
         b = 2 * (o[0]*v0[0]+o[1]*v0[1])
         c = o[0] ** 2 + o[1] **2 - self.rad ** 2
         
-        discriminant = b * b - 4 * a * c
+        discriminant = float(b * b - 4 * a * c)
         
         if discriminant < 0:
             return [False, 1.0]
@@ -140,7 +140,7 @@ class EYE(object):
         self.OffSetAngle   = - math.pi/3 + i * math.pi*2/3/NUM_EYES
         self.SightDistance = 0
         self.obj           = -1
-        self.FOV           = 130
+        self.FOV           = 130.0
         self.resetSightDistance()
         
     def resetSightDistance(self):
@@ -347,7 +347,7 @@ class World(wx.Frame):
         # Reward
         proximity_reward = 0.0
         for e in self.A.eyes:
-            proximity_reward += e.SightDistance/e.FOV if e.obj == 0 else 1.0
+            proximity_reward += float(e.SightDistance)/e.FOV if e.obj == 0 else 1.0
         proximity_reward /= NUM_EYES
         proximity_reward = min(1.0, proximity_reward*2)
         
