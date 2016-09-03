@@ -4,10 +4,14 @@ Somewhat clone version of Deep Q Learning Reinforcement Learning demo in ConvNet
 <img src="https://raw.githubusercontent.com/Chachay/DeepQNetworkTest/master/demo.png">
 
 ## Requirement
-- Python 2.7 32bit
-- Chainer 1.7.2
-- numpy 1.11.0
+- Python 2.7
+- Chainer
+- numpy
 - wxPython3.0-win32-py27
+
+## Note
+pyplot in wxPython3.0 contains a ciritical error. c.f.[Crash on pyplot demo \- Google Groups](https://groups.google.com/forum/#!msg/wxpython-users/VGBZ2Uiv864/BlWfCz_Q_mAJ)
+You have to overwrite [wxPython/plot\.py](https://github.com/wxWidgets/wxPython/blob/master/wx/lib/plot.py)
 
 ## Usage
 ```
