@@ -35,6 +35,7 @@ class Q(Chain):
     def __init__(self, state_dim = STATE_DIM):
         super(Q, self).__init__(
             l1=F.Linear(state_dim, 50),
+            l2=F.Linear(50, 50),
             q_value=F.Linear(50, 5)
         )
     def __call__(self, x, t):
@@ -42,7 +43,8 @@ class Q(Chain):
         
     def predict(self, x, train = False):
         h1 = F.leaky_relu(self.l1(x))
-        y = F.leaky_relu(self.q_value(h1))
+        h2 = F.leaky_relu(self.l2(h1))
+        y = self.q_value(h2)
         return y
 
 class Walls(object):

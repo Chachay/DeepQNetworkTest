@@ -47,7 +47,7 @@ class Q(Chain):
     def predict(self, x, train = False):
         h1 = F.leaky_relu(self.l1(x))
         h2 = F.leaky_relu(self.l2(h1))
-        y = F.leaky_relu(self.q_value(h2))
+        y = self.q_value(h2)
         return y
 
 class Walls(object):
