@@ -5,7 +5,7 @@ Somewhat clone version of Deep Q Learning Reinforcement Learning demo in ConvNet
 
 ## Requirement
 - Python 2.7
-- Chainer
+- Chainer (1.15.0)
 - numpy
 - wxPython3.0-win32-py27
 
